@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Minesweeper_Story</title>
+  <link href="./css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/stylesheet_minesweeper.css">
+</head>
+<body>
+
+
+<header>
+		<div class="container-top">
+		  <div class="row">
+		    <div class="col-sm-7 col-xs-9">
+		    	<div class="header-left">
+		    		<a href="https://freepc-yuki.com/dojo/"><img src="./img/yuki.png" class="top-logo"></a>
+		    		<a href="https://freepc-yuki.com/dojo/"><p>ゆーきのアウトプット道場</p></a>
+		    	</div>
+		    	
+		    </div>
+
+		    <div class="col-sm-5 col-xs-3">
+
+		    	<div id="nav-drawer">
+			    	<input id="nav-input" type="checkbox" class="nav-unshown">
+			    	<label id="nav-open" for="nav-input"><span></span></label>
+			    	<label class="nav-unshown" id="nav-close" for="nav-input"></label>
+			    	<div id="nav-content">
+			    		<ul>
+			    			<a href="https://freepc-yuki.com/dojo/"><li>ホーム</li></a>
+			    			<li>アプリ一覧</li>
+			    			<li>プロフィール</li>
+			    			<li>お問い合わせ</li>
+		    			</ul></div>
+				</div>
+
+		    	<div class="header-right">
+		    		<ul>
+		    			<li>ホーム</li>
+		    			<li>アプリ一覧</li>
+		    			<li>プロフィール</li>
+		    			<li>お問い合わせ</li>
+		    		</ul>
+		    	</div>	
+			</div>
+		  </div>
+		</div>
+	 </header>
+
+	 <div class="container">
+	    <div class="row">
+
+	    	<div class="col-sm-12 col-xs-12">
+	    		<div class="main-wrapper">
+	    			<h1>マインスイーパー</h1>
+
+		    		<div class="col-sm-12">
+		    			
+			    			<p class="first-message">難易度を選択して下さい</p>
+							<label class="radio-style"><input type="radio" name="level" value="syokyu"> 初級</label>
+							<label class="radio-style"><input type="radio" name="level" value="chukyu" checked> 中級</label>
+							<label class="radio-style"><input type="radio" name="level" value="jokyu"> 上級</label>
+							<label class="radio-box"><input type="button" value="決定" id="level_btn"></label>
+						
+		    		</div>
+
+			        <div class="col-sm-7 col-xs-12">
+			        	<div class="info-container">
+				        	<div class="col-sm-4 col-xs-4">
+				        		<div class="bomb_count" id="bomb_zan">
+				        			<p>20</p>
+				        		</div>
+				        	</div>
+				        	<div class="col-sm-4 col-xs-4">
+				        		<div class="reset_btn" id="restart_btn">
+				        			<img src="img/smile.jpg" class="smile">
+				        		</div>
+				        	</div>
+				        	<div class="col-sm-4 col-xs-4">
+				        		<div class="watch" id="timer">
+				        			<p>00:00</p>
+				        		</div>
+				        	</div>
+				        </div>
+
+				        <div class="main-container">
+					        <div class="col-sm-12 col-xs-12">
+								<table id="main" border="1"></table>
+					        </div>
+					        <div class="col-sm-12 col-xs-12">
+					        	<div class="back-img">
+						        	<img src="img/icon1-1.jpg">
+						        </div>
+					        </div>
+					        <div class="col-sm-12 col-xs-12 flag-mode">
+					        	<p class="flag-moji">フラグモード</p>
+					        	<p>
+								    <label class="switch">
+
+								        <input type="checkbox" id="flag_mode_choice">
+								        <span class="label">
+								            <span class="on">ON</span
+								            ><span class="separator"></span
+								            ><span class="off">OFF</span>
+								        </span>
+								    </label>
+								</p>
+					        </div>
+					    </div>
+					</div>
+
+				    <div class="item-box">
+				    	<div class="col-sm-5 col-xs-12">
+				    		<h3>アイテムリスト</h3>
+				    		<div class="col-sm-12">
+
+				    			<table class="table table-bordered">
+				    				<thead>
+				    					<tr class="warning">
+				    						<td><p>アイテム</p></td>
+				    						<td><p>効果</p></td>
+				    						<td><p>所持数</p></td>
+				    					</tr>
+				    				</thead>
+									<tbody>
+										<tr id="plane" class="">
+											<td><img src="img/plane.png"></td>
+											<td><p class="item-message-top">飛行機攻撃</p><p class="item-message-bottom">ランダムで3枚パネルを開く</p></td>
+											<td><p id="plane_item">0個</p></td>
+										</tr>
+										
+									</tbody>
+								</table>
+
+				    		</div>
+				    		
+				    	</div>
+
+				    	<h3>補足情報</h3>
+				    	<p>黒背景で白文字のセルが出ればアイテムゲット！運ゲーになったらアイテムを使いましょう！！</p>
+				    	<p>オープンになった数字＝周辺の旗の数の場合、オープンになった数字を再度選択してみましょう！</p>
+				    	<p>フラグモードをONにすると、旗を立てる操作になります</p>
+				    </div>
+
+				    <!--ゲームクリア画面--->
+					<div class="kekka">
+						<section id="result">
+							<div class="omedeto"><p>Congratulations!!</p></div>
+							<div class="yoko">
+								<div class="haruka-love">
+									<img src="img/icon1-2.jpg">
+								</div>
+								<div class="haruka-love-message">
+									<p>クリアおめでとうございます！！<br>次はタイムアタックにも挑戦してみて下さい</p>
+								</div>
+							</div>
+							<div class="restart" id="restartone"><p>最初から</p></div>
+						</section>
+					</div>
+
+					<!--バッドエンド画面--->
+					<div class="kekka">
+						<section id="bad_result">
+							<div class="omedeto"><p>BAD END!!</p></div>
+							<div class="yoko">
+								<div class="haruka-love">
+									<img src="img/icon1-3.jpg">
+								</div>
+								<div class="haruka-love-message">
+									<p>残念。あなたは死にました。<br>もう一度挑戦しましょう</p>
+								</div>
+							</div>
+							<div class="restart" id="restarttwo"><p>最初から</p></div>
+						</section>
+					</div>
+			    </div>
+			</div>
+	    </div>
+	</div>
+
+
+	<hooter>
+	 	<div class="row">
+	 		<div class="col-sm-12">
+	 			<div class="footer-wrapper">
+	 				<div class="col-sm-6 col-xs-5">
+	 					<div class="footer-left">
+	 						<p>Copyright - 長岡　勇輝, 2019 All Rights Reserved.</p>
+	 					</div>
+	 				</div>
+	 				<div class="col-sm-6 col-xs-7">
+	 					<div class="footer-right">
+	 						<ul>
+	 							<li>プライバシーポリシー</li>
+	 							<li>サイトマップ</li>
+	 						</ul>
+	 					</div>
+	 				</div>
+	 			</div>
+	 		</div>
+	 	</div>
+	 </hooter>
+</div>
+  
+
+  <!-- jQuery読み込み -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="js/main_minesweeper.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+</body>
+</html>
